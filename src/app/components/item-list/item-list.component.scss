@@ -1,0 +1,142 @@
+@import "src/assets/variable";
+
+.votes {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+  position: relative;
+
+  li {
+    position: relative;
+    list-style-type: none;
+    background: #e9ecef;
+    font-size: 18px;
+    transition: 0.2s;
+    padding: 25px 10px 25px 0;
+    -webkit-user-select: none;
+    user-select: none;
+    display: flex;
+    align-items: center;
+
+    &:nth-child(odd) {
+      background: $gray-100;
+    }
+
+    &:hover {
+      background: $gray-400;
+
+      .delete {
+        display: block;
+      }
+    }
+
+    input {
+      appearance: none;
+      display: none;
+    }
+
+    label {
+      font-size: 1rem;
+      padding: 13px 15px 13px 35px;
+      flex: 8;
+    }
+
+    .vote-box {
+      display: inline-block;
+      vertical-align: middle;
+      float: right;
+      margin-right: 50px;
+      flex: 4;
+      text-align: right;
+      min-width: 120px;
+    }
+
+    .delete {
+      cursor: pointer;
+      position: absolute;
+      right: 18px;
+      top: 6px;
+      font-size: 33px;
+      display: none;
+
+      &:hover {
+        color: $danger;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    li {
+      .delete {
+        display: block;
+        color: $gray-700;
+      }
+    }
+  }
+}
+
+.sort {
+  .btn {
+    padding: 10px 15px;
+    width: 100%;
+    background-color: $gray-400;
+    margin: 20px 0;
+
+    svg {
+      width: 25px;
+      height: 25px;
+      vertical-align: middle;
+      padding-right: 8px;
+    }
+
+    span {
+      vertical-align: middle;
+    }
+
+    &:hover {
+      background-color: $gray-300;
+    }
+
+    &.active {
+      background-color: $primary;
+      color: $white;
+    }
+  }
+}
+
+.footer {
+  background-color: #20c997;
+  padding: 15px;
+  color: white;
+  text-align: center;
+  border-top: 5px solid #ced4da;
+  border-radius: 0 0 10px 10px;
+  margin-top: 25px;
+
+  &:before {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .totalCount {
+    padding: 15px;
+    text-align: right;
+    font-weight: 500;
+    font-size: 16px;
+    color: $white;
+    transition: $anim;
+  }
+
+  .cs-pagination {
+    padding: 0;
+    text-align:left;
+
+    ::ng-deep ul {
+      padding: 0;
+      & *{
+        color: $white!important;
+      }
+    }
+  }
+}

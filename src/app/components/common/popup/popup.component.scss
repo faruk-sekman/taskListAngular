@@ -1,0 +1,130 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1055;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+
+  .popup-dialog {
+    position: relative;
+    width: auto;
+    margin: 0.5rem;
+    pointer-events: none;
+    transition: transform .3s ease-out;
+    transform: translate(0,-50px);
+    .popup-content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      pointer-events: auto;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid rgba(0, 0, 0, .2);
+      border-radius: 0.3rem;
+      outline: 0;
+
+      .popup-header {
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1rem;
+        border-bottom: 1px solid #dee2e6;
+        border-top-left-radius: calc(0.3rem - 1px);
+        border-top-right-radius: calc(0.3rem - 1px);
+
+        .btn-close {
+          padding: 0.5rem 0.5rem;
+          margin: -0.5 rem -0.5 rem -0.5 rem auto;
+        }
+
+        .popup-title {
+          margin: 0;
+          line-height: 1.5;
+          font-size: 1.25rem;
+        }
+      }
+
+      .popup-body {
+        position: relative;
+        flex: 1 1 auto;
+        padding: 1rem;
+      }
+
+      .popup-footer {
+        display: flex;
+        flex-wrap: wrap;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0.75rem;
+        border-top: 1px solid #dee2e6;
+        border-bottom-right-radius: calc(0.3rem - 1px);
+        border-bottom-left-radius: calc(0.3rem - 1px);
+
+        > * {
+          margin: 0.25rem;
+        }
+      }
+    }
+  }
+
+  &.fade {
+    .popup-dialog {
+      transition: transform .3s ease-out;
+      transform: translate(0,-50px);
+    }
+  }
+
+  &.show {
+    display: block;
+
+    .popup-dialog {
+      transform: none;
+      transition: transform .3s ease-out;
+    }
+  }
+
+  @media (min-width: 576px) {
+    .popup-dialog {
+      max-width: 500px;
+      margin: 1.75rem auto;
+    }
+  }
+}
+
+.fade {
+  transition: opacity .15s linear;
+  &:not(.show) {
+    opacity: 0;
+  }
+}
+
+.popup-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0;
+  z-index: -1;
+
+  &.fade {
+    opacity: 0;
+  }
+
+  &.show {
+    opacity: .5;
+    z-index: 1;
+  }
+}
+
+

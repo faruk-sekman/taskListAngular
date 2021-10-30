@@ -1,0 +1,21 @@
+@import "src/assets/variable";
+
+.item-add-page {
+  .content{
+    .new-vote-input {
+      padding: 10px 15px;
+    }
+    .add-button {
+      padding: 10px 15px;
+      span{
+        vertical-align: middle;
+      }
+      svg{
+        width: 25px;
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 8px;
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<div class="popup fade" [ngClass]="showPopup ? 'show':''">
+  <div class="popup-dialog">
+    <div class="popup-content">
+      <div class="popup-header">
+        <h5 class="popup-title">Onay</h5>
+        <button type="button" class="btn-close" (click)="closePopup()"></button>
+      </div>
+      <div class="popup-body">
+        <p><b>"{{vote.name}}"</b> ögesini silmek istiyor musunuz?</p>
+      </div>
+      <div class="popup-footer">
+        <button type="button" class="btn btn-secondary" (click)="closePopup()">Kapat</button>
+        <button type="button" class="btn btn-primary" (click)="deleteItem(vote)">Onayla</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="popup-backdrop" [ngClass]="showPopup ? 'fade show':''"></div>
+

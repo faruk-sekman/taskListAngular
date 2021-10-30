@@ -1,0 +1,36 @@
+@import "../../../../assets/variable";
+
+.header {
+  background-color: $teal;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+  border-bottom: 5px solid $gray-400;
+  margin-top: 30px;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 20px;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .title {
+    margin:0;
+  }
+}
+.newBtn, .back-link{
+  padding: 10px 15px;
+  span{
+    vertical-align: middle;
+  }
+  svg{
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    padding-right: 8px;
+  }
+}
+.back-link{
+  margin-bottom: 20px;
+}
