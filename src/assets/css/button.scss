@@ -1,4 +1,4 @@
-@import "src/assets/variable";
+@import "variable";
 
 .btn {
   display: inline-block;
@@ -93,6 +93,9 @@ button:not(:disabled) {
 
 .btn.disabled, .btn:disabled, fieldset:disabled .btn {
   pointer-events: none;
-  opacity: .65;
-  cursor: default;
+  opacity: .45;
+  cursor: no-drop;
+  &:hover{
+    cursor: no-drop;
+  }
 }

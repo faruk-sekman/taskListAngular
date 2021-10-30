@@ -10,3 +10,4 @@
 
 <app-popup *ngIf="showPopup" [showPopup]="showPopup" [vote]="vote" (delete)="delete($event)" (close)="closePopup()"></app-popup>
 <app-notification *ngIf="isNotification" [options]="notificationOptions"></app-notification>
+<app-loading *ngIf="loading"></app-loading>

@@ -12,11 +12,13 @@ import {SharedModule} from "src/app/_core/shared.module"
 import {Interceptor} from './_core/_interceptor/interceptor';
 
 import {AppComponent} from './app.component';
+import { PageNotFoundComponent } from './components/common/page-not-found/page-not-found.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

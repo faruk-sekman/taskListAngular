@@ -34,7 +34,7 @@ export class ItemListComponent implements OnInit {
     this.delete.emit(vote);
   }
 
-  updateVote(e:any) {
+  updateVote(e: any) {
     this.loading = true;
     this.vote = this.votes.filter(item => item.id === e.id);
     this.vote[0].voteCount = e.voteCount;
@@ -43,31 +43,47 @@ export class ItemListComponent implements OnInit {
     this.vote[0].modifiedDate = this.globalService.createdDate();
     this.voteService.updateVote(this.vote).subscribe(vote => {
       this.vote = vote;
-      this.votes = this.globalService.sortDataModifiedDate(this.votes);
+      if (!this.asc && !this.desc) {
+        this.votes = this.globalService.sortDataModifiedDate(this.votes);
+      } else {
+        if (this.asc) {
+          this.sort(null, 'asc', true);
+        } else if (this.desc) {
+          this.sort(null, 'desc', true);
+        }
+      }
       this.globalService.setDataLocalStorage(this.votes);
       this.loading = false;
     });
   }
 
-  sort(e:any, sort:any) {
-    if(sort === 'desc') {
-      this.desc = !this.desc;
-      this.asc = false;
-      if (this.desc) {
+  sort(e: any, sort: any, isUpdate?: boolean) {
+    if (isUpdate) {
+      if (sort === 'desc') {
         this.votes = this.globalService.sortDataRatingDesc(this.votes);
-      } else {
-        this.votes = this.globalService.sortDataModifiedDate(this.votes);
-      }
-    } else if(sort === 'asc') {
-      this.asc = !this.asc;
-      this.desc = false;
-      if (this.asc) {
+      }  else if (sort === 'asc') {
         this.votes = this.globalService.sortDataRatingAsc(this.votes);
-      } else {
-        this.votes = this.globalService.sortDataModifiedDate(this.votes);
       }
     } else {
-      return;
+      if (sort === 'desc') {
+        this.desc = !this.desc;
+        this.asc = false;
+        if (this.desc) {
+          this.votes = this.globalService.sortDataRatingDesc(this.votes);
+        } else {
+          this.votes = this.globalService.sortDataModifiedDate(this.votes);
+        }
+      } else if (sort === 'asc') {
+        this.asc = !this.asc;
+        this.desc = false;
+        if (this.asc) {
+          this.votes = this.globalService.sortDataRatingAsc(this.votes);
+        } else {
+          this.votes = this.globalService.sortDataModifiedDate(this.votes);
+        }
+      } else {
+        return;
+      }
     }
   }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit} from '@angular/core';
+
 import {VoteModel} from "../../_core/_models/vote.model";
 import {VoteService} from "../../_core/_services/vote.service";
 import {NotificationModel} from "../common/notification/notification.model";
@@ -9,13 +10,16 @@ import {GlobalService} from "../../_core/_services/global.service";
   templateUrl: './item-add.component.html',
   styleUrls: ['./item-add.component.scss']
 })
-export class ItemAddComponent implements OnInit {
+export class ItemAddComponent implements OnInit, AfterViewInit{
   public votes: VoteModel[] = [];
   public itemCount: number | any;
   public pageTitle: string = 'Yeni Ekle';
   public page: string = 'item-add';
   public backLink: string = '/votes';
   public isNotification: boolean = false;
+  public inputVal: string = '';
+  public inputValValid: boolean = false;
+  public loading: boolean = true;
   public notificationOptions: NotificationModel  = {
     position: 'bottom-right',
     type: 'info',
@@ -29,7 +33,13 @@ export class ItemAddComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.itemCount = this.globalService.getDataLocalStorage().length;
+    this.loading = false;
+  }
 
+  ngAfterViewInit() {
+    const input:any = document.getElementById('voteName');
+    input.focus();
   }
 
   onEnter(e:any): void {
@@ -38,6 +48,7 @@ export class ItemAddComponent implements OnInit {
 
   add(name: string): void {
     this.isNotification = false;
+    this.loading = true;
     name = name.trim();
     if (!name) { return; }
 
@@ -48,8 +59,9 @@ export class ItemAddComponent implements OnInit {
         this.voteService.getVotes().subscribe(votes => {
           data = votes;
           this.globalService.setDataLocalStorage(data);
+          this.itemCount = data.length;
+          this.loading = false;
         });
-        this.itemCount = this.votes.length;
         this.isNotification = true;
         this.notificationOptions  = {
           position: 'bottom-right',
@@ -57,6 +69,6 @@ export class ItemAddComponent implements OnInit {
           message: name + ' başarıyla eklenmiştir.',
           isShow: true
         };
-      });
+      }, error => this.loading = false);
   }
 }

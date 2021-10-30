@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   public page: string = 'home';
   public backLink: string = '';
 
-  public loading: boolean = false;
+  public loading: boolean = true;
 
   // popup
   public showPopup: boolean = false;
@@ -49,6 +49,7 @@ export class HomeComponent implements OnInit {
       .subscribe(votes => {
         this.votes = this.globalService.sortDataModifiedDate(votes);
         this.itemCount = this.votes.length;
+        this.loading = false;
       });
   }
   delete(vote: VoteModel): void {

@@ -36,7 +36,6 @@
       </span>
     <span class="delete" (click)="deleteItem(vote)">×</span>
   </li>
-  <app-loading *ngIf="loading"></app-loading>
 </ul>
 <div class="footer">
   <div class="row">
@@ -55,5 +54,6 @@
   </div>
 </div>
 
+<app-loading *ngIf="loading"></app-loading>
 
 
