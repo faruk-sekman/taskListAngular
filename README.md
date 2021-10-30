@@ -1,6 +1,8 @@
 # Study
 
-Live Demo: https://stackblitz.com/edit/angular-ivy-nsoxj2
+# Live Demo: https://angular-ivy-nsoxj2.stackblitz.io/votes
+
+# Live Demo with source code: https://stackblitz.com/edit/angular-ivy-nsoxj2
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.7.
 
