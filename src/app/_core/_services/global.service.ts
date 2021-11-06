@@ -11,13 +11,14 @@ export class GlobalService {
     let date: any = new Date();
     return date;
   }
-
+  public getMyVoted(data:VoteModel[]) {
+    return data.filter(item => item.isVoted);
+  }
   public sortDataModifiedDate(data:any) {
     return data.sort((a:any, b:any) => {
       return <any>new Date(b.modifiedDate) - <any>new Date(a.modifiedDate);
     });
   }
-
   public sortDataRatingDesc(data:any) {
     return data.sort((a:any, b:any) => {
       return <any>new Date(b.voteCount) - <any>new Date(a.voteCount);
@@ -28,11 +29,11 @@ export class GlobalService {
       return <any>new Date(a.voteCount) - <any>new Date(b.voteCount);
     });
   }
-  public setDataLocalStorage(votes: VoteModel[]) {
-    return localStorage.setItem('votesData', JSON.stringify(votes));
+  public setDataLocalStorage(name:string, votes: VoteModel[]) {
+    return localStorage.setItem(name, JSON.stringify(votes));
   }
 
-  public getDataLocalStorage(): any {
-    return JSON.parse(<string>localStorage.getItem('votesData'));
+  public getDataLocalStorage(name:string): any {
+    return JSON.parse(<string>localStorage.getItem(name));
   }
 }

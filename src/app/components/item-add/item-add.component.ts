@@ -33,8 +33,19 @@ export class ItemAddComponent implements OnInit, AfterViewInit{
   }
 
   ngOnInit(): void {
-    this.itemCount = this.globalService.getDataLocalStorage().length;
-    this.loading = false;
+    let data: VoteModel[];
+    data = this.globalService.getDataLocalStorage('votesData');
+    if (data || data !== null) {
+      this.itemCount = data.length;
+      this.loading = false;
+    } else {
+      this.voteService.getVotes()
+        .subscribe(votes => {
+          this.votes = votes;
+          this.itemCount = this.votes.length;
+          this.loading = false;
+        });
+    }
   }
 
   ngAfterViewInit() {
@@ -54,14 +65,26 @@ export class ItemAddComponent implements OnInit, AfterViewInit{
 
     this.voteService.addVote({ name, voteCount: 0, id:this.globalService.randomId(), createdDate: this.globalService.createdDate(), modifiedDate: this.globalService.createdDate(), isVoted: false, votedType:''} as VoteModel)
       .subscribe(vote => {
-        this.votes.push(vote);
-        let data:any;
-        this.voteService.getVotes().subscribe(votes => {
-          data = votes;
-          this.globalService.setDataLocalStorage(data);
-          this.itemCount = data.length;
+        let data: VoteModel[];
+        data = this.globalService.getDataLocalStorage('votesData');
+        if (data || data !== null) {
+          this.votes = data
+          this.votes.push(vote);
+          this.votes = this.globalService.sortDataModifiedDate(this.votes);
+          this.globalService.setDataLocalStorage('votesData', this.votes);
+          this.itemCount = this.votes.length;
           this.loading = false;
-        });
+        } else {
+          this.voteService.getVotes()
+            .subscribe(votes => {
+              this.votes = votes;
+              this.votes.push(vote);
+              this.votes = this.globalService.sortDataModifiedDate(this.votes);
+              this.globalService.setDataLocalStorage('votesData', this.votes);
+              this.itemCount = this.votes.length;
+              this.loading = false;
+            });
+        }
         this.isNotification = true;
         this.notificationOptions  = {
           position: 'bottom-right',

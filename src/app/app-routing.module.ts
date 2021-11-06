@@ -16,6 +16,10 @@ const routes: Routes = [
     path: 'item-add',
     loadChildren: () => import('./components/item-add/item-add.module').then(mod => mod.ItemAddModule)
   },
+  {
+    path: 'my-voted',
+    loadChildren: () => import('./components/my-voted/my-voted.module').then(mod => mod.MyVotedModule)
+  },
   { path: '**', pathMatch: 'full', component: PageNotFoundComponent }
 ];
 

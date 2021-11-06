@@ -5,7 +5,6 @@ import {FormsModule} from "@angular/forms";
 import {SharedModule} from '../../_core/shared.module';
 import {ItemAddRoutingModule} from './item-add-routing.module';
 
-import {VoteService} from '../../_core/_services/vote.service';
 
 import {ItemAddComponent} from './item-add.component';
 
@@ -23,7 +22,6 @@ import {ItemAddComponent} from './item-add.component';
     ItemAddComponent
   ],
   providers: [
-    VoteService
   ]
 })
 export class ItemAddModule {

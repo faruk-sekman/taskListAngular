@@ -9,6 +9,7 @@
   margin-top: 30px;
   border-radius: 10px 10px 0 0;
   margin-bottom: 20px;
+
   &:after {
     content: "";
     display: table;
@@ -16,21 +17,29 @@
   }
 
   .title {
-    margin:0;
+    margin: 0;
   }
 }
-.newBtn, .back-link{
+
+.btn {
   padding: 10px 15px;
-  span{
+  width: 100%;
+
+  span {
     vertical-align: middle;
   }
-  svg{
+
+  svg {
     width: 25px;
     height: 25px;
     vertical-align: middle;
     padding-right: 8px;
   }
+
+  @media (max-width: 576px) {
+    &{
+      margin-bottom: 15px;
+    }
+  }
 }
-.back-link{
-  margin-bottom: 20px;
-}
+

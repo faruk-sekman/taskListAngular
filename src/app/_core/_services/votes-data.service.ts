@@ -6,7 +6,7 @@ import {GlobalService} from './global.service'
 @Injectable({
   providedIn: 'root',
 })
-export class InMemoryDataService implements InMemoryDbService {
+export class VotesDataService implements InMemoryDbService {
 
   public data: VoteModel[] | any;
 
@@ -15,7 +15,7 @@ export class InMemoryDataService implements InMemoryDbService {
 
   createDb() {
     let votes: VoteModel[];
-    this.data = this.globalService.getDataLocalStorage();
+    this.data = this.globalService.getDataLocalStorage('votesData');
     if(this.data || this.data !== null){
       votes = this.data;
     } else {
@@ -111,7 +111,8 @@ export class InMemoryDataService implements InMemoryDbService {
           isVoted:  true
         }
       ];
-      this.globalService.setDataLocalStorage(votes);
+
+      this.globalService.setDataLocalStorage('votesData', votes);
     }
     return {votes};
   }

@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, Output, EventEmitter, ElementRef} from '@angular/core';
-import {VoteModel} from "../../_core/_models/vote.model";
+import {VoteModel} from "../../../_core/_models/vote.model";
 
 @Component({
   selector: 'app-vote-box',
@@ -17,29 +17,25 @@ export class VoteBoxComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  update(e: any, id: number, count: number, update: string) {
-    let votedType, isVoted;
+  update(e: any, vote:VoteModel, update:string) {
     if (update === 'up') {
-      count = count + 1;
-      votedType = '+1';
-      isVoted = true;
+      vote.voteCount = vote.voteCount + 1;
+      vote.votedType = '+1';
+      vote.isVoted = true;
     } else if (update === 'down') {
-      if (count - 1 <= 0) {
-        count = 0;
+      if (vote.voteCount - 1 <= 0) {
+        vote.voteCount = 0;
       } else {
-        count = count - 1;
-        votedType = '-1';
-        isVoted = true;
+        vote.voteCount = vote.voteCount - 1;
+        vote.votedType = '-1';
+        vote.isVoted = true;
       }
     } else {
       return;
     }
     this.updateVote.emit({
       event: e,
-      id: this.vote.id,
-      voteCount: count,
-      votedType: votedType,
-      isVoted: isVoted
+      vote: vote
     });
   }
 }

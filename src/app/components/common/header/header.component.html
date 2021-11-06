@@ -1,19 +1,68 @@
 <div class="container">
-  <div class="row justify-content-center">
+  <div class="row  justify-content-center">
     <div class="col-sm-12 col-lg-8">
-      <div class="header">
-        <h2 class="title">{{title}}</h2>
+      <div class="row justify-content-center" *ngIf="page === 'home'">
+        <div class="col-sm-12">
+          <div class="header">
+            <h2 class="title">{{title}}</h2>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <a routerLink="/my-voted" class="btn btn-success myVotedBtn">
+                <svg class="icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><use xlink:href="#check"/></svg>
+                <span>Oyladıklarım</span>
+              </a>
+            </div>
+            <div class="col-sm-6">
+              <a routerLink="/item-add" class="btn btn-primary mb-0 newBtn">
+                <svg class="icon-plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><use xlink:href="#plus"/></svg>
+                <span>Yeni Ekle</span>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="d-grid" *ngIf="page === 'home'">
-        <a routerLink="/item-add" class="btn btn-primary newBtn">
-          <svg aria-hidden="true" data-icon="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" class=""></path></svg>
-          <span>Yeni Ekle</span>
-        </a>
+      <div class="row justify-content-center" *ngIf="page !== 'home'">
+        <div class="col-sm-12">
+          <div class="header">
+            <h2 class="title">{{title}}</h2>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <a *ngIf="backLink && page !== 'home'" routerLink="{{backLink}}" class="btn btn-secondary back-link">
+                <svg class="icon-arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><use xlink:href="#arrow-left"/></svg>
+                <span>Ana Sayfa</span>
+              </a>
+            </div>
+            <div class="col-sm-4">
+              <a routerLink="/my-voted" class="btn btn-success myVotedBtn">
+                <svg class="icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><use xlink:href="#check"/></svg>
+                <span>Oyladıklarım</span>
+              </a>
+            </div>
+            <div class="col-sm-4">
+              <a routerLink="/item-add" class="btn btn-primary mb-0 newBtn">
+                <svg class="icon-plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><use xlink:href="#plus"/></svg>
+                <span>Yeni Ekle</span>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div *ngIf="backLink && page !== 'home'" routerLink="{{backLink}}" class="btn btn-primary back-link">
-        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-arrow-left fa-w-14"><path fill="currentColor" d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z" class=""></path></svg>
-        <span>Geri Dön</span>
-      </div>
+      <hr>
     </div>
   </div>
 </div>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="check" fill="currentColor">
+    <path fill="currentColor" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path>
+  </symbol>
+  <symbol id="plus" fill="currentColor">
+    <path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path>
+  </symbol>
+  <symbol id="arrow-left" fill="currentColor">
+    <path fill="currentColor" d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z" class=""></path>
+  </symbol>
+</svg>

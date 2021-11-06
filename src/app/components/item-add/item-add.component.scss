@@ -23,12 +23,20 @@
   }
 
   hr{
-    margin: 30px 0;
-    height: 1px;
     background-color: $green;
-    border: none;
   }
   .totalCount{
     font-weight: 500;
+  }
+  @media screen and (max-width: 480px){
+    .content {
+      .col-9{
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      .col-3{
+        width: 100%;
+      }
+    }
   }
 }

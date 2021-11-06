@@ -3,11 +3,13 @@ import {NgModule} from '@angular/core';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 
-import {HomeModule} from "./components/home/home.module";
-import {ItemAddModule} from "./components/item-add/item-add.module";
-
 // shared module
 import {SharedModule} from "src/app/_core/shared.module"
+
+
+import {HomeModule} from "./components/home/home.module";
+import {MyVotedModule} from "./components/my-voted/my-voted.module";
+import {ItemAddModule} from "./components/item-add/item-add.module";
 
 import {Interceptor} from './_core/_interceptor/interceptor';
 
@@ -25,6 +27,7 @@ import { PageNotFoundComponent } from './components/common/page-not-found/page-n
     AppRoutingModule,
     HttpClientModule,
     HomeModule,
+    MyVotedModule,
     ItemAddModule,
     SharedModule.forRoot()
   ],

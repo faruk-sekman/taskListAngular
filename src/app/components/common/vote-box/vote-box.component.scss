@@ -16,4 +16,17 @@
     display: inline-block;
     text-align: center;
   }
+
+  @media screen and (max-width: 480px) {
+    .btn {
+      svg {
+        width: 13px;
+      }
+    }
+    span {
+      margin: 0 7px;
+      width: 23px;
+      font-size: 15px;
+    }
+  }
 }

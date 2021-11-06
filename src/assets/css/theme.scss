@@ -26,6 +26,10 @@
   margin-right: 0.5rem !important;
 }
 
+.mb-0{
+  margin-bottom: 0!important;
+}
+
 .flex-shrink-0 {
   flex-shrink: 0 !important;
 }
@@ -40,7 +44,12 @@
   text-align: right!important;
 }
 
-
+hr{
+  margin: 25px 0;
+  height: 1px;
+  background-color: $gray-600;
+  border: none;
+}
 .form-control {
   display: block;
   width: 100%;

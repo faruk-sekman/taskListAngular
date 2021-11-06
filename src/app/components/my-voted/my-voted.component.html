@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-12 col-lg-8">
-      <app-item-list [itemCount]="itemCount" [votes]="votes"></app-item-list>
+      <app-item-list [itemCount]="itemCount" [votes]="votes" (updateMyVoted)="updateMyVoted($event)" (sortMyVoted)="sortMyVoted($event)"></app-item-list>
       <app-loading *ngIf="loading"></app-loading>
     </div>
   </div>

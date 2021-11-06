@@ -73,6 +73,21 @@
       }
     }
   }
+  @media screen and (max-width: 480px) {
+    li {
+      .vote-box {
+        margin-right: 40px;
+        flex: 6;
+        min-width: 100px;
+      }
+
+      label {
+        flex: 6;
+        font-size: 14px;
+        padding: 13px 10px 13px 10px;
+      }
+    }
+  }
 }
 
 .sort {
@@ -80,7 +95,7 @@
     padding: 10px 15px;
     width: 100%;
     background-color: $gray-400;
-    margin: 20px 0;
+    margin: 0 0 20px 0;
 
     svg {
       width: 25px;
@@ -98,8 +113,21 @@
     }
 
     &.active {
-      background-color: $primary;
+      background-color: $secondary;
       color: $white;
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    .btn {
+      font-size: 14px;
+      padding: 10px 5px;
+
+      svg {
+        width: 22px;
+        height: 22px;
+        padding-right: 8px;
+      }
     }
   }
 }
@@ -111,7 +139,7 @@
   text-align: center;
   border-top: 5px solid #ced4da;
   border-radius: 0 0 10px 10px;
-  margin-top: 25px;
+  margin: 25px 0;
 
   &:before {
     content: "";
@@ -130,12 +158,13 @@
 
   .cs-pagination {
     padding: 0;
-    text-align:left;
+    text-align: left;
 
     ::ng-deep ul {
       padding: 0;
-      & *{
-        color: $white!important;
+
+      & * {
+        color: $white !important;
       }
     }
   }
