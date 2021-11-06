@@ -34,7 +34,7 @@
     <span class="vote-box">
         <app-vote-box [vote]="vote" (updateVote)="updateVote($event)"></app-vote-box>
       </span>
-    <span class="delete" (click)="deleteItem(vote)">×</span>
+    <span class="delete" (click)="deletePopup(vote)">×</span>
   </li>
 </ul>
 <div class="footer">
@@ -54,7 +54,7 @@
   </div>
 </div>
 
-<app-popup *ngIf="showPopup" [showPopup]="showPopup" [vote]="vote" (delete)="deletePopup($event)" (close)="closePopup()"></app-popup>
+<app-popup *ngIf="showPopup" [showPopup]="showPopup" [vote]="vote" (delete)="deleteItem($event)" (close)="closePopup()"></app-popup>
 <app-notification *ngIf="isNotification" [options]="notificationOptions"></app-notification>
 <app-loading *ngIf="loading"></app-loading>
 
