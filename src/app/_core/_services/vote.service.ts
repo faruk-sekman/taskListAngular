@@ -12,7 +12,8 @@ export class VoteService {
   public readonly apiUrl: string = environment.apiVotesUrl;
 
   constructor(
-    private http: HttpClient) { }
+    private http: HttpClient) {
+  }
 
   getVotes(): Observable<VoteModel[]> {
     return this.http.get<VoteModel[]>(this.apiUrl)
@@ -25,7 +26,7 @@ export class VoteService {
     return this.http.post<VoteModel>(this.apiUrl, vote).pipe(
       catchError(this.handleError<VoteModel>('addVote'))
     );
-  }
+}
 
   deleteVote(vote: VoteModel | number): Observable<VoteModel> {
     const id = typeof vote === 'number' ? vote : vote.id;
