@@ -23,7 +23,14 @@
     color: $gray-900;
   }
 }
-
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}
+.btn:hover {
+  color: #212529;
+}
 button:not(:disabled) {
   cursor: pointer;
 }
@@ -97,5 +104,62 @@ button:not(:disabled) {
   cursor: no-drop;
   &:hover{
     cursor: no-drop;
+  }
+}
+
+.btn-info {
+  color: #000;
+  background-color: #0dcaf0;
+  border-color: #0dcaf0;
+  &:hover {
+    color: #000;
+    background-color: #31d2f2;
+    border-color: #25cff2;
+  }
+
+}
+
+.btn-warning {
+  color: #000;
+  background-color: #ffc107;
+  border-color: #ffc107;
+  &:hover {
+    color: #000;
+    background-color: #ffca2c;
+    border-color: #ffc720;
+  }
+
+}
+.btn-light {
+  color: #000;
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+  &:hover {
+    color: #000;
+    background-color: #f9fafb;
+    border-color: #f9fafb;
+  }
+}
+
+.btn-dark {
+  color: #fff;
+  background-color: #212529;
+  border-color: #212529;
+  &:hover {
+    color: #fff;
+    background-color: #1c1f23;
+    border-color: #1a1e21;
+  }
+}
+
+.btn-link {
+  font-weight: 400;
+  color: #0d6efd;
+  text-decoration: underline;
+  &:hover {
+    color: #0a58ca;
+  }
+  &:disabled, &.disabled {
+    color: #6c757d;
   }
 }

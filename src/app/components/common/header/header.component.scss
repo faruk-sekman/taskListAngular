@@ -1,12 +1,48 @@
 @import "../../../../assets/css/variable";
 
+.top-bar {
+  margin-top: 30px;
+  text-align: right;
+
+  ul {
+    padding: 0;
+
+    li {
+      display: inline-block;
+      padding: 10px;
+
+      a {
+        cursor: pointer;
+        vertical-align: middle;
+        padding-left: 8px;
+        text-decoration: none;
+      }
+
+      span {
+        vertical-align: middle;
+        padding-left: 8px;
+        color: $gray-600;
+      }
+
+      [data-icon="user"] {
+        color: $gray-600;
+      }
+
+      svg {
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
 .header {
   background-color: $teal;
   padding: 30px 40px;
   color: white;
   text-align: center;
   border-bottom: 5px solid $gray-400;
-  margin-top: 30px;
   border-radius: 10px 10px 0 0;
   margin-bottom: 20px;
 
@@ -21,9 +57,15 @@
   }
 }
 
+.info {
+  font-size: 75%;
+  margin-top: 3px;
+}
+
 .btn {
   padding: 10px 15px;
   width: 100%;
+  position: relative;
 
   span {
     vertical-align: middle;
@@ -37,7 +79,7 @@
   }
 
   @media (max-width: 576px) {
-    &{
+    & {
       margin-bottom: 15px;
     }
   }

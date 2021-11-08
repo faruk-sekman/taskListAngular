@@ -9,7 +9,7 @@ import {environment} from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class VoteService {
-  public readonly apiUrl: string = environment.apiUrl;
+  public readonly apiUrl: string = environment.apiVotesUrl;
 
   constructor(
     private http: HttpClient) { }

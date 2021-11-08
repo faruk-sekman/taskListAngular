@@ -2,6 +2,8 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import { PageNotFoundComponent } from './components/common/page-not-found/page-not-found.component';
 
+import { LoginComponent } from './components/login/login.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -19,6 +21,11 @@ const routes: Routes = [
   {
     path: 'my-voted',
     loadChildren: () => import('./components/my-voted/my-voted.module').then(mod => mod.MyVotedModule)
+  },
+  {
+    path: 'login',
+    pathMatch: 'full',
+    component: LoginComponent
   },
   { path: '**', pathMatch: 'full', component: PageNotFoundComponent }
 ];

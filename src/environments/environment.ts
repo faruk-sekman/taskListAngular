@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'api/votes'
+  apiVotesUrl: 'api/votes',
+  apiAuthUrl: 'api/auth',
 };
 
 /*
