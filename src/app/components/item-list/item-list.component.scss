@@ -51,16 +51,30 @@
       min-width: 120px;
     }
 
-    .delete {
-      cursor: pointer;
+    .icons {
       position: absolute;
-      right: 18px;
-      top: 6px;
-      font-size: 33px;
-      display: none;
+      right: 0;
+      top: 0;
+      width: 85px;
 
-      &:hover {
-        color: $danger;
+      .delete, .edit {
+        display: inline-block;
+        cursor: pointer;
+        margin-left: 5px;
+        padding: 0;
+        line-height: 39px;
+        width: 36px;
+        height: 36px;
+        text-align: center;
+
+        svg {
+          width: 16px;
+          color: #fff;
+        }
+
+        &:hover {
+          color: $danger;
+        }
       }
     }
   }
