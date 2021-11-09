@@ -8,7 +8,7 @@ import {SharedModule} from "src/app/_core/shared.module"
 
 import {HomeModule} from "./components/home/home.module";
 import {MyVotedModule} from "./components/my-voted/my-voted.module";
-import {ItemAddModule} from "./components/item-add/item-add.module";
+import {ItemAddModule} from "./components/item/item-add.module";
 
 import {Interceptor} from './_core/_helpers/_interceptor/interceptor';
 import { fakeBackendProvider } from './_core/_services/fake-backend';

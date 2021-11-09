@@ -15,8 +15,8 @@ const routes: Routes = [
     loadChildren: () => import('./components/home/home.module').then(mod => mod.HomeModule)
   },
   {
-    path: 'item-add',
-    loadChildren: () => import('./components/item-add/item-add.module').then(mod => mod.ItemAddModule)
+    path: 'item',
+    loadChildren: () => import('./components/item/item-add.module').then(mod => mod.ItemAddModule)
   },
   {
     path: 'my-voted',

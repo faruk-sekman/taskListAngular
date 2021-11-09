@@ -1,4 +1,5 @@
 import {NgModule} from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import {CommonModule} from '@angular/common';
 import {FormsModule} from "@angular/forms";
@@ -13,6 +14,7 @@ import {ItemAddComponent} from './item-add.component';
     CommonModule,
     ItemAddRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     SharedModule
   ],
   exports: [

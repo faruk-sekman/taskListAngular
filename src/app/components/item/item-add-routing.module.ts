@@ -7,6 +7,9 @@ import {RoleModel} from "../../_core/_models/role.model";
 const routes: Routes = [
   {
     path: '', component: ItemAddComponent,
+    children: [
+      { path: ':id', component: ItemAddComponent }
+    ],
     canActivate: [AuthGuard],
     data: { roles: [RoleModel.Admin] }
   }

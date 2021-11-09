@@ -7,6 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {NgxPaginationModule} from 'ngx-pagination';
 
+import { FormatDates } from './_helpers/pipes.pipe';
+
 // components
 import {HeaderComponent} from '../components/common/header/header.component';
 import {NotificationComponent} from '../components/common/notification/notification.component';
@@ -36,10 +38,11 @@ import {GlobalService} from './_services/global.service';
     VoteBoxComponent,
     ItemListComponent,
     PopupComponent,
-    LoginComponent
+    LoginComponent,
+    FormatDates
   ],
   exports: [
-    CommonModule, RouterModule, FormsModule, HeaderComponent, NotificationComponent, LoadingComponent, VoteBoxComponent, PopupComponent, ItemListComponent
+    CommonModule, RouterModule, FormsModule, HeaderComponent, NotificationComponent, LoadingComponent, VoteBoxComponent, PopupComponent, ItemListComponent, FormatDates
   ]
 })
 

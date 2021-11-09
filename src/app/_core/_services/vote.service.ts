@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient }from '@angular/common/http';
 
-import { Observable, of } from 'rxjs';
-import { catchError} from 'rxjs/operators';
+import {Observable, of} from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import { VoteModel } from '../_models/vote.model';
 import {environment} from '../../../environments/environment';
@@ -11,8 +11,7 @@ import {environment} from '../../../environments/environment';
 export class VoteService {
   public readonly apiUrl: string = environment.apiVotesUrl;
 
-  constructor(
-    private http: HttpClient) {
+  constructor(private http: HttpClient) {
   }
 
   getVotes(): Observable<VoteModel[]> {
@@ -20,6 +19,13 @@ export class VoteService {
       .pipe(
         catchError(this.handleError<VoteModel[]>('getVotes', []))
       );
+  }
+
+  getById(id: number): Observable<VoteModel> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<VoteModel>(url).pipe(
+      catchError(<any>this.handleError)
+    );
   }
 
   addVote(vote: VoteModel): Observable<VoteModel> {

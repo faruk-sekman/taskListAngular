@@ -32,8 +32,9 @@
     <input type="checkbox" id="{{vote.id}}"/>
     <label for="{{vote.id}}">{{vote.name}}</label>
     <span class="vote-box">
-        <app-vote-box [vote]="vote" (updateVote)="updateVote($event)"></app-vote-box>
-      </span>
+      <app-vote-box [vote]="vote" (updateVote)="updateVote($event)"></app-vote-box>
+    </span>
+    <span class="edit" routerLink="/item/{{vote.id}}">Edit</span>
     <span class="delete" (click)="deletePopup(vote)">×</span>
   </li>
 </ul>
