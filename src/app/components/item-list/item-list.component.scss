@@ -12,7 +12,7 @@
     background: #e9ecef;
     font-size: 18px;
     transition: 0.2s;
-    padding: 25px 10px 25px 0;
+    padding: 40px 10px 40px 0;
     -webkit-user-select: none;
     user-select: none;
     display: flex;
@@ -37,7 +37,7 @@
 
     label {
       font-size: 1rem;
-      padding: 13px 15px 13px 35px;
+      padding: 13px 15px 13px 20px;
       flex: 8;
     }
 
@@ -45,7 +45,7 @@
       display: inline-block;
       vertical-align: middle;
       float: right;
-      margin-right: 50px;
+      margin-right: 15px;
       flex: 4;
       text-align: right;
       min-width: 120px;
