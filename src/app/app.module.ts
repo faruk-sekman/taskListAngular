@@ -21,6 +21,7 @@ import { PageNotFoundComponent } from './components/common/page-not-found/page-n
   declarations: [
     AppComponent,
     PageNotFoundComponent
+
   ],
   imports: [
     BrowserModule,

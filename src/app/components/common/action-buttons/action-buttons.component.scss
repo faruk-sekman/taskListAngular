@@ -1,0 +1,82 @@
+@import "../../../../assets/css/variable";
+
+.dropdown{
+  position: relative;
+  .icons {
+    text-align: right;
+    padding: 0;
+    margin: 0;
+    display: block;
+    list-style: none;
+    li{
+      display: inline-block;
+      padding: 10px;
+    }
+    .delete, .edit {
+      display: inline-block;
+      cursor: pointer;
+      margin-left: 5px;
+      padding: 0;
+      line-height: 39px;
+      width: 36px;
+      height: 36px;
+      text-align: center;
+
+      svg {
+        width: 16px;
+        color: #fff;
+      }
+
+      &:hover {
+        color: $danger;
+      }
+    }
+  }
+  .dropdown-toggle{
+    padding: 1px 8px;
+    svg{
+      width: 18px;
+      margin-top: 6px;
+    }
+  }
+  .dropdown-menu{
+    position: absolute;
+    z-index: 2;
+    min-width: 144px;
+    padding: 0.5rem 0;
+    margin: 6px 0 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: center;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 0.25rem;
+    display: none;
+    right: 0;
+    &:before, &:after{
+      position: absolute;
+      display: block;
+      content: "";
+      border-color: transparent;
+      border-style: solid;
+      margin: auto;
+      right: 10px;
+      width: 2px;
+    }
+    &:before{
+      top: -7px;
+      border-width: 0 0.5rem 0.5rem 0.5rem;
+      border-bottom-color: rgba(0,0,0,.25);
+    }
+    &:after{
+      top: -6px;
+      border-width: 0 0.5rem 0.5rem 0.5rem;
+      border-bottom-color: #fff;
+    }
+    &.active{
+      display: block;
+    }
+  }
+}

@@ -17,7 +17,7 @@ import { LoadingComponent } from '../components/common/loading/loading.component
 import { VoteBoxComponent } from '../components/common/vote-box/vote-box.component';
 import { ItemListComponent } from '../components/item-list/item-list.component';
 import { LoginComponent } from '../components/login/login.component';
-
+import {ActionButtonsComponent} from '../components/common/action-buttons/action-buttons.component';
 
 // _services
 import {VotesDataService} from './_services/votes-data.service';
@@ -39,10 +39,11 @@ import {GlobalService} from './_services/global.service';
     ItemListComponent,
     PopupComponent,
     LoginComponent,
-    FormatDates
+    FormatDates,
+    ActionButtonsComponent
   ],
   exports: [
-    CommonModule, RouterModule, FormsModule, HeaderComponent, NotificationComponent, LoadingComponent, VoteBoxComponent, PopupComponent, ItemListComponent, FormatDates
+    CommonModule, RouterModule, FormsModule, HeaderComponent, NotificationComponent, LoadingComponent, VoteBoxComponent, PopupComponent, ItemListComponent, FormatDates, ActionButtonsComponent
   ]
 })
 

@@ -126,6 +126,10 @@
   display: grid!important;
 }
 
+.align-items-start {
+  align-items: center!important;
+}
+
 @media (min-width: 576px) {
   .col-sm {
     flex: 1 0 0%;

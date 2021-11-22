@@ -12,11 +12,10 @@
     background: #e9ecef;
     font-size: 18px;
     transition: 0.2s;
-    padding: 40px 10px 40px 0;
     -webkit-user-select: none;
     user-select: none;
-    display: flex;
     align-items: center;
+    padding: 20px 15px;
 
     &:nth-child(odd) {
       background: $gray-100;
@@ -24,10 +23,6 @@
 
     &:hover {
       background: $gray-400;
-
-      .delete {
-        display: block;
-      }
     }
 
     input {
@@ -37,70 +32,30 @@
 
     label {
       font-size: 1rem;
-      padding: 13px 15px 13px 20px;
-      flex: 8;
     }
 
     .vote-box {
-      display: inline-block;
       vertical-align: middle;
-      float: right;
-      margin-right: 15px;
-      flex: 4;
       text-align: right;
-      min-width: 120px;
+      display: block;
     }
 
-    .icons {
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 85px;
 
-      .delete, .edit {
-        display: inline-block;
-        cursor: pointer;
-        margin-left: 5px;
-        padding: 0;
-        line-height: 39px;
-        width: 36px;
-        height: 36px;
-        text-align: center;
-
-        svg {
-          width: 16px;
-          color: #fff;
-        }
-
-        &:hover {
-          color: $danger;
-        }
-      }
-    }
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 575px) {
     li {
-      .delete {
+      label {
+        margin-bottom: 20px;
         display: block;
-        color: $gray-700;
+      }
+      .vote-box {
+        text-align: left;
       }
     }
   }
   @media screen and (max-width: 480px) {
-    li {
-      .vote-box {
-        margin-right: 40px;
-        flex: 6;
-        min-width: 100px;
-      }
 
-      label {
-        flex: 6;
-        font-size: 14px;
-        padding: 13px 10px 13px 10px;
-      }
-    }
   }
 }
 
