@@ -1,10 +1,10 @@
 # Study
 
 ## Live Demo: 
-https://angular-ivy-gcqfkd.stackblitz.io/votes
+https://angular-ivy-j6pne7.stackblitz.io/votes
 
 ## Live Demo with source code: 
-https://stackblitz.com/edit/angular-ivy-gcqfkd
+https://stackblitz.com/edit/angular-ivy-j6pne7
 
 #
 
