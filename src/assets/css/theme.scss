@@ -71,3 +71,9 @@ hr {
   color: $red;
   padding-left: 5px;
 }
+.disabled{
+  cursor: no-drop!important;
+}
+.disabled:hover{
+  cursor: no-drop!important;
+}

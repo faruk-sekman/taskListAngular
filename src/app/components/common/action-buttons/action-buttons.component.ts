@@ -1,5 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output, AfterViewInit} from '@angular/core';
 import {VoteModel} from "../../../_core/_models/vote.model";
+import {RoleModel} from "../../../_core/_models/role.model";
+import {UserModel} from "../../../_core/_models/user.model";
+import {AuthenticationService} from "../../../_core/_services/authentication.service";
 
 @Component({
   selector: 'app-action-buttons',
@@ -10,7 +13,10 @@ export class ActionButtonsComponent implements OnInit, AfterViewInit{
   @Input() public vote: VoteModel | any;
   @Output() public deletePopup = new EventEmitter();
 
-  constructor() {
+  public user: UserModel | any;
+
+  constructor(private authenticationService: AuthenticationService) {
+    this.authenticationService.user.subscribe(x => this.user = x);
   }
 
 
@@ -50,5 +56,15 @@ export class ActionButtonsComponent implements OnInit, AfterViewInit{
 
   delete(vote: VoteModel): void {
     this.deletePopup.emit(vote);
+  }
+
+  get isGuest(): boolean {
+    return this.user && this.user.role === RoleModel.Guest;
+  }
+  get isAdmin(): boolean {
+    return this.user && this.user.role === RoleModel.Admin;
+  }
+  get isUser(): boolean {
+    return this.user && this.user.role === RoleModel.User;
   }
 }
