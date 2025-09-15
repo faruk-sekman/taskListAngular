@@ -1,4 +1,4 @@
-# Study
+# Task List
 
 ## Live Demo: 
 https://angular-ivy-j6pne7.stackblitz.io/votes
